@@ -31,6 +31,7 @@
                 return (
                     <div style={cardStyle}>
                         <Square/>
+                        <Label/>
                     </div>
                 );
             },
@@ -49,7 +50,16 @@
 
         const Label = React.createClass({
             render: function(){
-                <p>Nothing</p>
+                const labelStyle = {
+                    fontFamily : "sans-serif",
+                    fontWeight : "bold",
+                    padding: 14,
+                    margin: 0,
+                };
+
+                return(
+                <p style={labelStyle}>#FF6664</p>
+                );
             }
         });
 
