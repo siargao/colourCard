@@ -19,6 +19,38 @@
     <div id='container'></div>
     <script type="text/babel">
 
+        //the Square component
+        const Square = React.createClass({
+            render: function(){
+                const squareStyle = {
+                    height: 150,
+                    backgroundColor: this.props.color,
+                };
+                return (
+                    <div style={squareStyle}>
+                    </div>
+                    )
+                ;
+            }
+        });
+        
+        //the Label component
+        const Label = React.createClass({
+            render: function(){
+                const labelStyle = {
+                    fontFamily : "sans-serif",
+                    fontWeight : "bold",
+                    padding: 14,
+                    margin: 0,
+                };
+
+                return(
+                <p style={labelStyle}>{this.props.color}</p>
+                );
+            }
+        });
+
+        //the Card component which host the Square and Label component
         const Card = React.createClass({
             render: function() {
                 const cardStyle =  {
@@ -30,42 +62,19 @@
                 };
                 return (
                     <div style={cardStyle}>
-                        <Square/>
-                        <Label/>
+                        <Square color={this.props.color}/>
+                        <Label color={this.props.color}/>
                     </div>
                 );
             },
             
         });
 
-        const Square = React.createClass({
-            render: function(){
-                const squareStyle = {
-                    height: 150,
-                    backgroundColor: "#FF6664"
-                };
-                return <div style={squareStyle}></div>;
-            }
-        });
-
-        const Label = React.createClass({
-            render: function(){
-                const labelStyle = {
-                    fontFamily : "sans-serif",
-                    fontWeight : "bold",
-                    padding: 14,
-                    margin: 0,
-                };
-
-                return(
-                <p style={labelStyle}>#FF6664</p>
-                );
-            }
-        });
-
         ReactDOM.render(
             <div>
-                <Card/>
+                <Card color="#DF5"/>
+                <Card color="#AFF"/>
+                <Card color="#DDD"/>
             </div>, 
             document.querySelector("#container")
         );
